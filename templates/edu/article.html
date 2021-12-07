@@ -1,6 +1,8 @@
 {% extends '../shared/base.html' %}
 {% block content %}
+<div class="container article my-4">
     <h1>{{article.title}}</h1>
     <h5>{{article.pub_date|date}} by {{article.author}}</h5>
     {{article.body.quill.html | safe}}
+</div>
 {% endblock content %}

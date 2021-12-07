@@ -1,6 +1,9 @@
+{% load static %}
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="{% url 'index' %}">Title</a>{% comment "" %}Research how to set the brand appropriately https://getbootstrap.com/docs/5.1/components/navbar/{% endcomment %}
+      <a class="ps-2 navbar-brand" href="{% url 'index' %}">
+        <img src="{% static 'img/logo/favicon_io/android-chrome-192x192.png' %}" alt="logo" height="42px">
+        Prescribeless</a>{% comment "" %}Research how to set the brand appropriately https://getbootstrap.com/docs/5.1/components/navbar/{% endcomment %}
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -17,6 +20,11 @@
             {% endif %}
           </li>
           <li class="nav-item">
+            {% if view == 'Standard' %}
+            {% else %}<a class="nav-link" href="{% url 'showprescribers' %}">View Prescribers</a>
+            {% endif %}
+          </li>
+          <li class="nav-item">
             {% if view == 'Standard' %}<a class="nav-link" href="{% url 'community' %}">Community</a> 
             {% else %}
             <li class="nav-item dropdown">
@@ -24,8 +32,8 @@
                 Recommendation Engine
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="{% url 'recommend' entity='drug' %}">Recommend a Drug</a></li>
-                <li><a class="dropdown-item" href="{% url 'recommend' entity='prescriber' %}">Recommend a Prescriber</a></li>
+                <li><a class="dropdown-item" href="{% url 'predtotpresc' %}">Predict Total Prescriptions</a></li>
+                <li><a class="dropdown-item" href="{% url 'predprescop' %}">Predict a Prescription</a></li>
                 {% comment %} <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="#">Something else here</a></li> {% endcomment %}
               </ul>
@@ -38,9 +46,9 @@
           </li>
           {% endif %}
         </ul>
-        <ul class="navbar-nav mb-2 mb-lg-0">
-            <li class="me-3"><button id="login-btn" class="nav-link py-2 px-3 btn btn-light btn-outline-primary " onclick="location.href='{% url 'prescriber_index' %}'">Prescriber Portal</button></li>
-            <li class="me-1"><button id="signup-btn" class="nav-link py-2 px-3 btn btn-primary text-white " onclick="location.href='{% url 'register' %}'">Prescriber Sign Up</button></li>
+        <ul class="d-flex">
+            <li class="me-3 nav-item"><button id="login-btn" class="nav-link py-2 px-3 btn btn-light btn-outline-primary " onclick="location.href='{% url 'login' %}'">Prescriber Portal</button></li>
+            <li class="me-1 nav-item"><button id="signup-btn" class="nav-link py-2 px-3 btn btn-primary text-white " onclick="location.href='{% url 'register' %}'">Prescriber Sign Up</button></li>
         </ul>
       </div>
     </div>

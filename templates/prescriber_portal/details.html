@@ -1,7 +1,13 @@
 {% extends '../shared/base.html' %}
 {% load static %}
 {% block content %}
+
+{% comment %} <div id="spinner-box" class="d-flex justify-content-center mt-5">
+  <div class="spinner-border " role="status"></div>
+</div> {% endcomment %}
 <div class="container">
+  
+{% if entity == 'prescriber' %}
   <table class="table">
     <thead>
         <tr>
@@ -26,57 +32,66 @@
       </tr>
     </tbody>
   </table>
-<p>recommended drugs: </p>
-<ul>
-{% for drug in recommended_drugs %}
-<li>
-{{forloop.counter}}: {{drug}}
-</li>
+  <br><br>
+  <p>recommended drugs: </p>
+  <ul>
+  {% for drug in recommended_drugs %}
+  <li>
+  {{forloop.counter}}: {{drug}}
+  </li>
+  {% endfor %}
+  </ul>
+  <br><br>
+
+  {% for drug in drugname %}
+  <p>Drug: {{drug}}</p>
+  {% endfor %}
+  {% for item in quantity %}
+  <p>Quantity: {{item}}</p>
+  {% endfor %}
+  {% for avg in average %}
+  <p>Average: {{avg}}</p>
+  {% endfor %}
+
+
+{% else %}
+  <table class="table">
+    <thead>
+        <tr>
+            <th scope="col" >Drug Name</th>
+            <th scope="col" >Is Opioid</th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr class="table-active">
+        <td>{{record.drugname}}</td>
+        <td>{{record.isopioid}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>recommended prescribers: </p>
+  <ul>
+  {% for prescriber in recommended_prescribers %}
+  <li>
+  {{forloop.counter}}: {{prescriber}}
+  </li>
+  {% endfor %}
+  </ul>
+  <div>
+    <p>{{record.drugname}} has been prescribed {{total_prescriptions}} times</p>
+  </div>
+{% endif %}
+
+<br>
+<p>Top Ten Prescribers of {{record.drugname}}</p>
+<ol>
+{% for item in querito%}
+  <li>{{item.fname}} {{item.lname}}</li>
 {% endfor %}
-</ul>
+</ol>
+{% comment %} <p>{{querito}}</p> {% endcomment %}
 </div>
-
-
-
-
-
-
-{% comment %} <p>
-    <form name="form" method="post" action="{% url 'updateCust' %}">
-        {% csrf_token %}
-        <input type="hidden" id="npi" name="npi" value="{{record.npi}}">
-
-        <label for='fname'>First name:</label>
-        <input type="text" name="fname" id="fname" value="{{record.fname}}" autofocus>
-        <br><br>
-
-        <label for='lname'>Last name:</label>
-        <input type="text" name="lname" id="lname" value="{{record.lname}}">
-        <br><br>
-
-        <label for='gender'>Gender:</label>
-        <input type="text" name="gender" id="gender" value="{{record.gender}}">
-        <br><br>
-
-        <label for='state'>State:</label>
-        <input type="text" name="state" id="state" value="{{record.state}}">
-        <br><br>
-
-        <label for='specialty'>Specialty:</label>
-        <input type="text" name="specialty" id="specialty" value="{{record.specialty}}">
-        <br><br>
-
-        <label for='isopioidprescriber'>Is Opioid Prescriber:</label>
-        <input type="text" name="isopioidprescriber" id="isopioidprescriber" value="{{record.isopioidprescriber}}">
-        <br><br>
-
-        <label for='totalprescriptions'>Total Prescriptions:</label>
-        <input type="text" name="totalprescriptions" id="totalprescriptions" value="{{record.totalprescriptions}}">
-        <br><br>
-
-        <button type="submit">Update</button>
-    </form>
-</p> {% endcomment %}
+{% comment %} |slice:'31:41' {% endcomment %}
 
 
 {% endblock %}

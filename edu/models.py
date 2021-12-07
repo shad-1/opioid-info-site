@@ -6,6 +6,7 @@
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
+from django.db.models.fields import TextField
 from django_quill.fields import QuillField
 
 class Author(models.Model):
@@ -23,7 +24,7 @@ class Author(models.Model):
             return self.organization
 
 
-PUBLICATION_TYPE = (('Article' , 'Article'), ('Blog','Blog'))
+PUBLICATION_TYPE = (('Article' , 'Article'), ('Blog','Blog'), ('Local Resource', 'Local Resource'))
 
 class Article(models.Model):
 
@@ -50,3 +51,13 @@ class Fact(models.Model):
 
     def __str__(self):
         return self.title
+
+class Quote(models.Model):
+    author = models.CharField(max_length=255)
+    quote = TextField()
+    date_modified = models.DateTimeField(auto_now=True, serialize=True)
+    internal_resources = models.ManyToManyField(Article, blank=True)
+    external_resource_link = models.URLField(blank=True, null=True)
+
+    def __str__(self):
+        return self.author

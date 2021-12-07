@@ -1,10 +1,26 @@
 {% extends '../shared/base.html' %}
+{% load widget_tweaks %}
 {% block content %}
-<div class="container">
-    <h1>Let's Get in Touch.</h1>
+<div class="container mb-3">
+    <h1 class="my-4">Let's Get in Touch.</h1>
     <form method="POST">
     {% csrf_token %}
-    {{form.as_p}}
+    <!--Contact Name-->
+    <div class="form-grid mb-3">
+        <label for="id_your_name" class="form-label">{{form.your_name.label}}:</label> 
+        {{form.your_name | add_class:"form-control"}}
+        <!--Contact Email-->
+        <label for="id_email" class="form-label">{{form.email.label}}:</label> 
+        {{form.email | add_class:"form-control"}}
+        <!--Contact Interests-->
+        <label for="id_interests" class="form-label mb-0">{{form.interests.label}}:</label> 
+        {% for interest in form.interests %}
+            <span class="right">{{interest}}</span>
+        {% endfor %}
+        <!--Contact Comments-->
+        <label for="id_message" class="form-label">{{form.message.label}}:</label> 
+        {{form.message | add_class:"form-control"}}
+    </div>
     <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>

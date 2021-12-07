@@ -9,6 +9,63 @@
     </div>
 </div>
 <div class="container">
+    <!--Quick facts snapshot-->
+    <h2 class="m-4">Get the facts:</h2>
+    <div class="card-container m-4">
+        {% for fact in facts %}
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{fact.title}}</h5>
+                    <p class="card-text">{{fact.body.quill.html | safe |truncatechars_html:150 }}</p>
+                    <button class="btn btn-outline-primary">Keep Reading</button>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <!--Article Section-->
+    <h2 class="m-4">Read the latest research:</h2>
+    <hr class="featurette-divider my-4">
+    <div class="row featurette m-4 py-4">
+        <div class="col-md-7">
+          <h4 class="featurette-heading">{{article1.title}}</h4>
+              <p class="lead">{% if article1.preview_text %}{{article1.preview_text}}{% else %}{{article1.body.quill.html | safe |truncatechars_html:150}}{% endif %}</p>
+          </p>
+          <p><a class="btn btn-secondary" href="#">Read on »</a></p>
+        </div>
+        <div class="col-md-5">
+          <img class='img-fluid' src="{% get_static_prefix %}img/preview_img/{% if article1.id < 7 %}{{article1.id}}{% else %}2{% endif %}.jpeg"alt="">
+        </div>
+      </div>
+      <hr class="featurette-divider my-4">
+      <div class="row featurette m-4 py-4">
+        <div class="col-md-5">
+          <img class='img-fluid' src="{% get_static_prefix %}img/preview_img/{% if article2.id < 7 %}{{article2.id}}{% else %}4{% endif %}.jpeg"alt="">
+        </div>
+        <div class="col-md-7">
+          <h4 class="featurette-heading">{{article2.title}}</h4>
+              <p class="lead">{% if article2.preview_text %}{{article2.preview_text }}{% else %}{{article2.body.quill.html | safe |truncatechars_html:150}}{% endif %}</p>
+          </p>
+          <p><a class="btn btn-secondary" href="#">Read on »</a></p>
+        </div>
+      </div>
+      <hr class="featurette-divider my-4">
+      <!--Testimonials-->
+      <h2 class="m-4">What people are saying:</h2>
+        <hr class="featurette-divider my-4">
+        {% for quote in quotes %}
+        <div class="m-4">
+            <figure>
+            <blockquote class="blockquote">
+              <p>{{quote.quote}}</p>
+            </blockquote>
+            <figcaption class="blockquote-footer">
+              {{quote.author}}
+            </figcaption>
+          </figure>
+        </div>
+        
+        {% endfor %}
+        <hr class="featurette-divider my-4">
     
 </div>
 {% endblock %}
