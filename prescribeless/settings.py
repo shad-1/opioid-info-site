@@ -76,7 +76,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'prescribeless.wsgi.application'
 
-SESSION_COOKIE_SECURE = True
+#SESSION_COOKIE_SECURE = True
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
