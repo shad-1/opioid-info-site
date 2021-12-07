@@ -29,7 +29,6 @@ DEBUG = False
 ALLOWED_HOSTS = ['opioids.azurewebsites.net'] #handling for localhost?
 
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -76,8 +75,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'prescribeless.wsgi.application'
-
-SECURE_SSL_REDIRECT = True
 
 SESSION_COOKIE_SECURE = True
 
