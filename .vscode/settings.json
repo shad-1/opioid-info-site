@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/62a93e7b-67bf-4805-9a2d-457a0b8d94fa/resourceGroups/appsvc_linux_centralus_basic/providers/Microsoft.Web/sites/opioids",
+    "appService.deploySubpath": "."
+}

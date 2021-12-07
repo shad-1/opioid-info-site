@@ -3,5 +3,13 @@
 {% block content %}
 <div class="container">
     <h1 class="my-4">Drug Prediction page</h1>
+    <p>Recommended Drugs: </p>
+    <ul>
+    {% for drug in recommended_drugs %}
+    <li>
+    {{forloop.counter}}: {{drug}}
+    </li>
+    {% endfor %}
+    </ul>
 </div>
 {% endblock %}

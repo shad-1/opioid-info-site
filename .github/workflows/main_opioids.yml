@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'opioids'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_F4D1068E8F1C483781DA50A3255F77B8 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_85394C3B75EA4B4FB517B237CCE54A8E }}

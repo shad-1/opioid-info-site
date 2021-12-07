@@ -8,6 +8,10 @@ ctx = {
 
 # Create your views here.
 def index(request):
+    ctx['facts'] = models.Fact.objects.all()[:6]
+    ctx['article1'] = models.Article.objects.get(id=5)
+    ctx['article2'] = models.Article.objects.get(id=3)
+    ctx['quotes'] = models.Quote.objects.all()[:3]
     return render(request, 'edu/index.html', ctx)
 
 def about(request):
@@ -37,9 +41,17 @@ def contact(request):
 
 def community(request):
     return render(request, 'edu/community.html', ctx)
-
-def login(request):
+    
+def loginPageView(request):
+    if request.method == 'POST':
+        form = forms.LoginForm(request.POST)
+        if form.is_valid():
+            pass
     return render(request, 'shared/login.html', ctx)
 
-def register(request):
+def registerPageView(request):
+    if request.method == 'POST':
+        form = forms.RegisterForm(request.POST)
+        if form.is_valid():
+            pass
     return render(request, 'shared/register.html', ctx)

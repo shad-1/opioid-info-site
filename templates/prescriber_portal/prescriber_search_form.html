@@ -1,0 +1,25 @@
+{% load widget_tweaks %}
+<!--Prescriber Name-->
+<label for="id_prescriber_name" class="form-label">{{form.prescriber_name.label}}:</label> 
+{{form.prescriber_name | add_class:"form-control"}}
+<!--Gender-->
+<label for="id_gender" class="form-label">{{form.gender.label}}:</label> 
+{{form.gender | add_class:"form-select"}}
+<!--State-->
+<label for="id_state" class="form-label">{{form.state.label}}:</label> 
+{{form.state | add_class:"form-select"}}
+<!--Specialty-->
+<label for="specialty" class="form-label">{{form.specialty.label}}:</label> 
+{{form.specialty | add_class:"form-select"}}
+<!--Prescribes opioids?-->
+<label for="id_isopioidprescriber" class="form-label">{{form.isopioidprescriber.label}}</label> 
+{{form.isopioidprescriber | add_class:"form-select"}}
+<!--Total Prescriptions-->
+<label for="id_total_prescriptions" class="form-label">{{form.total_prescriptions.label}}:</label> 
+{{form.total_prescriptions | add_class:"form-control" | attr:"type:number" | attr:"min:0" | attr:"max:10000"}}
+<!--Result Set Size-->
+<label for="id_result_size" class="form-label">{{form.result_size.label}}:</label> 
+{{form.result_size | add_class:"form-select"}}
+<!--Order By-->
+<label for="id_order_by" class="form-label">{{form.order_by.label}}:</label> 
+{{form.order_by | add_class:"form-select"}}
