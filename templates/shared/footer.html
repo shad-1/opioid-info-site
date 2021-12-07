@@ -1,6 +1,7 @@
 <footer class="py-5 container">
-    <div class="row">
-      <div class="col-2">
+  <div class="footer-wrapper">
+    <div class="footer-grid">
+      <div id="navigation-menu">
         <h5>Navigation</h5>
         <ul class="nav flex-column">
           <li class="nav-item mb-2"><a href="{% url 'index' %}" class="nav-link p-0 text-muted">Home</a></li>
@@ -11,25 +12,28 @@
         </ul>
       </div>
 
-      {% comment %} <div class="col-4 offset-2">
-        <form>
-          <h5>Subscribe to our newsletter</h5>
-          <p>Monthly digest of what's new and exciting from us.</p>
-          <div class="d-flex gap-2">
-            <label for="newsletter1" class="visually-hidden">Email address</label>
-            <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
-            <button class="btn btn-primary" type="button">Subscribe</button>
+          <div id="subscription-pitch">
+            <h5>Subscribe to our newsletter</h5>
+            <p>Get health tips, wellness advice, and inspirational stories&mdash;Straight to your inbox.</p>
           </div>
-        </form>
-      </div> {% endcomment %}
-    </div>
+        
 
-    <div class="d-flex justify-content-between py-4 my-4 border-top">
-      <p>© 2021 Company, Inc. All rights reserved.</p>
+        <div id="email-form">
+          <form method="get">
+            <label for="newsletter1" class="visually-hidden">Email address</label>
+            <input id="newsletter1" type="email" class="form-control my-3" placeholder="Email address">
+            <button class="btn btn-primary" type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div> 
+    </div>
+    <div class="d-flex justify-content-center py-4 my-4 border-top">
+      <p>© 2021 Prescribeless, All rights reserved.</p>
       <ul class="list-unstyled d-flex">
         <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
         <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
         <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
       </ul>
     </div>
+ 
   </footer>

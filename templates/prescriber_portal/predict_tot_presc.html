@@ -1,0 +1,37 @@
+{% extends '../shared/base.html' %}
+{% load static %}
+{% load widget_tweaks%}
+{% block content %}
+<div class="container">
+    <h1 class="my-4">Predict Total Prescriptions</h1>
+
+    {% if form %}
+        <form method="POST" action="{% url 'predtotpresc' %}">
+            {% csrf_token %}
+            <div class="form-grid mb-3">
+                <!--State-->
+                <label for="id_state" class="form-label">{{form.state.label}}:</label> 
+                {{form.state | add_class:"form-select"}}
+                <!--Gender-->
+                <label for="id_gender" class="form-label">{{form.gender.label}}:</label> 
+                {{form.gender | add_class:"form-select"}}
+                <!--Prescribes opioids?-->
+                <label for="id_isopioidprescriber" class="form-label">{{form.isopioidprescriber.label}}</label> 
+                {{form.isopioidprescriber | add_class:"form-select"}}
+                <!--Credential-->
+                <label for="id_credential" class="form-label">{{form.credential.label}}</label> 
+                {{form.credential | add_class:"form-select"}}
+                <!--Specialty-->
+                <label for="id_specialty" class="form-label">{{form.specialty.label}}</label> 
+                {{form.specialty | add_class:"form-select"}}
+            </div>
+            <button type="submit" class="btn btn-primary mb-3">Search</button>
+        </form>
+        
+    {% endif %}
+    
+    <p>Predicted Total Prescriptions: <span class="label">{{predicted_totalprescriptions}}</span></p>
+    
+    
+</div>
+{% endblock %}

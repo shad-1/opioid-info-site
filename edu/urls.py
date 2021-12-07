@@ -9,6 +9,6 @@ urlpatterns = [
     path('resources/<int:id>', views.resources, name='specific_resource'),
     path('contact', views.contact, name='contact'),
     path('community', views.community, name='community'),
-    path('login', views.login, name='login'),
-    path('register', views.register, name='register'),
+    path('login', views.loginPageView, name='login'),
+    path('register', views.registerPageView, name='register'),
 ]

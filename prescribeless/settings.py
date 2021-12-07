@@ -21,12 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = 'django-insecure-j)0$or2e9a(8taj7ysd384(+26_5$d6k+d5eo&#$@wcr58#2qb'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['opioids.azurewebsites.net'] #handling for localhost?
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -53,7 +53,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'prescribeless.urls'
@@ -76,7 +75,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'prescribeless.wsgi.application'
 
-SESSION_COOKIE_SECURE = True
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
@@ -84,12 +82,10 @@ SESSION_COOKIE_SECURE = True
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ['POSTGRES_DBNAME'],
-        'USER': os.environ['POSTGRES_DBUSER'],
-        'PASSWORD': os.environ['POSTGRES_DBPASS'],
-        'HOST': os.environ['POSTGRES_DBHOST'],
-        'PORT': os.environ['POSTGRES_DBPORT'],
-        'OPTIONS': { 'sslmode': 'require', }
+        'NAME': 'prescriptions',
+        'USER': 'postgres',
+        'PASSWORD': '1NewAdminPassword',
+        'HOST': 'intexdata.postgres.database.azure.com',
     }
 }
 
@@ -131,7 +127,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'prescribeless/static')

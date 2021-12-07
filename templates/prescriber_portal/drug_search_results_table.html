@@ -12,7 +12,7 @@
             {% if drug.rank != 0%}
             <tr>
                 <th scope="row">{{forloop.counter}}</th>
-                <td>{{drug.drugname}}</td>
+                <td onclick="location.href='{% url 'details' entity='drug' id=drug.drugid %}'">{{drug.drugname}}</td>
                 <td>{% if drug.isopioid == True %}Opioid{% else %}Non-opioid{% endif %}</td>
             </tr>
             {% endif %}
