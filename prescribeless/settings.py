@@ -26,7 +26,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://opioid-prescription-monitoring.azurewebsites.net'] #handling for localhost?
+ALLOWED_HOSTS = ['https://opioids.azurewebsites.net'] #handling for localhost?
 
 
 
