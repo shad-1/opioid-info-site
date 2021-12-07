@@ -1,0 +1,42 @@
+{% extends '../shared/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container">
+        <h1 class="my-4">Quick Facts</h1>
+        <div class="accordion mb-4">
+            {% for fact in facts %}
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="panelsStayOpen-heading{{fact.id}}">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse{{fact.id}}" aria-expanded="true" aria-controls="panelsStayOpen-collapse{{fact.id}}">
+                  {{fact.title}}
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapse{{fact.id}}" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-heading{{fact.id}}">
+                <div class="accordion-body">
+                  {{fact.body.quill.html | safe}}
+                  <div class="flex">
+                      {% if fact.external_resource_link %}
+                      <button class="btn btn-sm btn-light mb-1" onClick="location.href='{{fact.external_resource_link}}'">
+                        <span class="link">Read More</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="primary" class=" link bi bi-arrow-up-right-square" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm5.854 8.803a.5.5 0 1 1-.708-.707L9.243 6H6.475a.5.5 0 1 1 0-1h3.975a.5.5 0 0 1 .5.5v3.975a.5.5 0 1 1-1 0V6.707l-4.096 4.096z"/>
+                          </svg>
+                        </button>
+                      {% endif %}
+                      {% if fact.associated_articles %}
+                      {% for resource in fact.associated_articles %}
+                      <button class="btn btn-sm btn-light mb-1">
+                        <a href="{% url 'specific_resource' id=resource.id %}">
+                            {{resource}}
+                        </a>
+                      </button>
+                      {% endfor %}
+                      {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          <div class="py-4"> </div>
+    </div>
+{% endblock %}

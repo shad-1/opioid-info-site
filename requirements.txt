@@ -1,0 +1,15 @@
+asgiref
+certifi
+charset-normalizer
+Django
+django-quill
+django-quill-editor
+django-widget-tweaks
+idna
+Pillow
+psycopg2-binary
+pytz
+requests
+sqlparse
+urllib3
+whitenoise

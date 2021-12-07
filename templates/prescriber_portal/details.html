@@ -1,0 +1,82 @@
+{% extends '../shared/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+  <table class="table">
+    <thead>
+        <tr>
+            <th scope="col" >First Name</th>
+            <th scope="col" >Last Name</th>
+            <th scope="col" >Gender</th>
+            <th scope="col" >State</th>
+            <th scope="col" >Specialty</th>
+            <th scope="col" >Is Opioid Prescriber</th>
+            <th scope="col" >Total Prescriptions</th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr class="table-active">
+        <td>{{record.fname}}</td>
+        <td>{{record.lname}}</td>
+        <td>{{record.gender}}</td>
+        <td>{{record.state}}</td>
+        <td>{{record.specialty}}</td>
+        <td>{{record.isopioidprescriber}}</td>
+        <td>{{record.totalprescriptions}}</td>
+      </tr>
+    </tbody>
+  </table>
+<p>recommended drugs: </p>
+<ul>
+{% for drug in recommended_drugs %}
+<li>
+{{forloop.counter}}: {{drug}}
+</li>
+{% endfor %}
+</ul>
+</div>
+
+
+
+
+
+
+{% comment %} <p>
+    <form name="form" method="post" action="{% url 'updateCust' %}">
+        {% csrf_token %}
+        <input type="hidden" id="npi" name="npi" value="{{record.npi}}">
+
+        <label for='fname'>First name:</label>
+        <input type="text" name="fname" id="fname" value="{{record.fname}}" autofocus>
+        <br><br>
+
+        <label for='lname'>Last name:</label>
+        <input type="text" name="lname" id="lname" value="{{record.lname}}">
+        <br><br>
+
+        <label for='gender'>Gender:</label>
+        <input type="text" name="gender" id="gender" value="{{record.gender}}">
+        <br><br>
+
+        <label for='state'>State:</label>
+        <input type="text" name="state" id="state" value="{{record.state}}">
+        <br><br>
+
+        <label for='specialty'>Specialty:</label>
+        <input type="text" name="specialty" id="specialty" value="{{record.specialty}}">
+        <br><br>
+
+        <label for='isopioidprescriber'>Is Opioid Prescriber:</label>
+        <input type="text" name="isopioidprescriber" id="isopioidprescriber" value="{{record.isopioidprescriber}}">
+        <br><br>
+
+        <label for='totalprescriptions'>Total Prescriptions:</label>
+        <input type="text" name="totalprescriptions" id="totalprescriptions" value="{{record.totalprescriptions}}">
+        <br><br>
+
+        <button type="submit">Update</button>
+    </form>
+</p> {% endcomment %}
+
+
+{% endblock %}

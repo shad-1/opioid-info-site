@@ -1,0 +1,87 @@
+{% extends '../shared/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block content %}
+<div class="container">
+    <h1 class="my-4">{% if entity %}{{entity | capfirst}}{% endif %} Search Engine</h1>
+    <h4>I want to search for:</h4>
+    <!--RADIO TOGGLE: ENTITY--> <!--TODO: Consider spicing up the style on the radio buttons-->
+    <div class="mb-4">
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" 
+            onclick="location.href='{% if entity == 'drug' %}#{% else %}{% url 'search_entity' entity='drug' %}{% endif %}'"
+            {% if entity == 'drug' %}checked{% endif %}>
+            <label class="form-check-label user-select-none" for="flexRadioDefault1">
+            Drugs
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" 
+            onclick="location.href='{% if entity == 'prescriber' %}#{% else %}{% url 'search_entity' entity='prescriber' %}{% endif %}'"
+            {% if entity == 'prescriber' or entity is None %}checked{% endif %}>
+            <label class="form-check-label user-select-none" for="flexRadioDefault2">
+            Prescribers
+            </label>
+        </div>
+      </div>
+      <!--END RADIO TOGGLE: ENTITY-->
+      <!--FORM-->
+      {% if form %}
+      <form method="GET">
+        <div class="form-grid mb-3">
+          {% if entity == 'drug' %}
+          
+          <!--Drug Name-->
+          <label for="id_drugname" class="form-label">{{form.drugname.label}}:</label> 
+          {{form.drugname | add_class:"form-control"}}
+          <!--Is opioid?-->
+          <label for="id_isopioid" class="form-label">{{form.isopioid.label}}</label> 
+          {{form.isopioid | add_class:"form-select"}}
+          <!--Result Set Size-->
+          <label for="id_result_size" class="form-label">{{form.result_size.label}}:</label> 
+          {{form.result_size | add_class:"form-select"}}
+          <!--Order By-->
+          <label for="id_order_by" class="form-label">{{form.order_by.label}}:</label> 
+          {{form.order_by | add_class:"form-select"}}
+
+          {% elif entity == 'prescriber' %}
+
+          <!--Prescriber Name-->
+          <label for="id_prescriber_name" class="form-label">{{form.prescriber_name.label}}:</label> 
+          {{form.prescriber_name | add_class:"form-control"}}
+          <!--Gender-->
+          <label for="id_gender" class="form-label">{{form.gender.label}}:</label> 
+          {{form.gender | add_class:"form-select"}}
+          <!--State-->
+          <label for="id_state" class="form-label">{{form.state.label}}:</label> 
+          {{form.state | add_class:"form-select"}}
+          <!--Prescribes opioids?-->
+          <label for="id_isopioidprescriber" class="form-label">{{form.isopioidprescriber.label}}</label> 
+          {{form.isopioidprescriber | add_class:"form-select"}}
+          <!--Total Prescriptions-->
+          <label for="id_total_prescriptions" class="form-label">{{form.total_prescriptions.label}}:</label> 
+          {{form.total_prescriptions | add_class:"form-control" | attr:"type:number" | attr:"min:0" | attr:"max:10000"}}
+          <!--Result Set Size-->
+          <label for="id_result_size" class="form-label">{{form.result_size.label}}:</label> 
+          {{form.result_size | add_class:"form-select"}}
+          <!--Order By-->
+          <label for="id_order_by" class="form-label">{{form.order_by.label}}:</label> 
+          {{form.order_by | add_class:"form-select"}}
+
+          {% endif %}
+        </div>
+        <button type="submit" class="btn btn-primary mb-3">Search</button>
+      </form>
+      {% endif %}
+      <!--END FORM-->
+      <!--RESULTS TABLE-->
+      {% if entity == 'drug' and queryset %}
+        {% include './drug_search_results_table.html' %}
+      {% elif entity == 'prescriber' and queryset %}
+        {% include './prescriber_search_results_table.html' %}
+      {% else %}
+        <div class="spacer"></div>
+      {% endif %}
+      <!--END RESULTS TABLE-->
+</div>
+{% endblock %}

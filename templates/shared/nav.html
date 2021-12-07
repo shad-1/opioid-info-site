@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'index' %}">Title</a>{% comment "" %}Research how to set the brand appropriately https://getbootstrap.com/docs/5.1/components/navbar/{% endcomment %}
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            {% if view == 'Standard' %}<a class="nav-link" href="{% url 'facts' %}">Quick Facts</a> 
+            {% else %}<a class="nav-link" href="{% url 'search_entity' entity='drug' %}">Find a Drug</a>
+            {% endif %}
+          </li>
+          <li class="nav-item">
+            {% if view == 'Standard' %}<a class="nav-link" href="{% url 'resources' %}">Resources</a> 
+            {% else %}<a class="nav-link" href="{% url 'search_entity' entity='prescriber' %}">Find a Prescriber</a>
+            {% endif %}
+          </li>
+          <li class="nav-item">
+            {% if view == 'Standard' %}<a class="nav-link" href="{% url 'community' %}">Community</a> 
+            {% else %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Recommendation Engine
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="{% url 'recommend' entity='drug' %}">Recommend a Drug</a></li>
+                <li><a class="dropdown-item" href="{% url 'recommend' entity='prescriber' %}">Recommend a Prescriber</a></li>
+                {% comment %} <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li> {% endcomment %}
+              </ul>
+            </li>
+            {% endif %}
+          </li>
+          {% if view == 'Standard' %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+          </li>
+          {% endif %}
+        </ul>
+        <ul class="navbar-nav mb-2 mb-lg-0">
+            <li class="me-3"><button id="login-btn" class="nav-link py-2 px-3 btn btn-light btn-outline-primary " onclick="location.href='{% url 'prescriber_index' %}'">Prescriber Portal</button></li>
+            <li class="me-1"><button id="signup-btn" class="nav-link py-2 px-3 btn btn-primary text-white " onclick="location.href='{% url 'register' %}'">Prescriber Sign Up</button></li>
+        </ul>
+      </div>
+    </div>
+  </nav>

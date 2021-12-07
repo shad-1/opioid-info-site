@@ -1,0 +1,206 @@
+{% extends '../shared/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <h1 class="my-4">Connect.</h1>
+    <!--CAROUSEL-->
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="{% static 'img/utah-1279.jpg' %}" class="d-block carousel-img" alt="A utah landscape">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Utah Naloxone</h5>
+              <p>Learn about Naloxone, a live-saving opioid overdose drug, and what you can do to save the lives of others.</p>
+              <p><a class="btn btn-secondary" href=http://www.utahnaloxone.org/>View website »</a></p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'img/video-call-1200.jpeg' %}" class="d-block carousel-img" alt="Two people on a video call">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Virtual Mentorships</h5>
+              <p>Learn from the experiences of another. Be heard by someone who has been where you are.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'img/smiling-man-1200.jpeg' %}" class="d-block carousel-img" alt="A smiling man">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Testimonials</h5>
+              <p>Read stories of those who have overcome Substance Use Disorder and improved their mental health.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'img/gathering-1200.jpeg' %}" class="d-block carousel-img" alt="A festive gathering">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Community Events</h5>
+              <p>Gather with others in your place, family members, friends, and other members of your community.</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    <!--END CAROUSEL-->
+    <h3 class="pt-4 my-4">Don't do this alone</h3>
+    <p>Experts pinpoint <em>isolation</em> as one of the most painful symptoms of addiction. This exacerbates mental illness ranging from depression to skizophrenia. Similarly, many mental health conditions perpetuate themselves through loneliness.</p>
+    <p>Whether you are confronted by substance use disorder or mental illness, you are not the only one.<br>Linking up with other people who have similar experiences can bring perspective, motivation, and hope. </p>
+    <!--CARDS-->
+    <div class="row py-4 my-4">
+    <div class="row my-4">
+        <div class="col-lg-4">
+          <center><img class='circle' width="140" height="140" src="{% static 'img/testimonial-200.png' %}"alt="a circle">
+  
+          <h2>Testimonials</h2></center>
+          <p>You are not alone. Others have been in your situation and felt the same feelings of anxiety and hopelessness. 
+            Learn about their experiences below.</p>
+          <p><a class="btn btn-secondary" href="#Testimonials">View details »</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <center><img class='circle'width="140" height="140" src="{% static 'img/mentor-200.png' %}"alt="a circle">
+  
+          <h2>Mentorships</h2></center>
+          <p>Our virtual mentorship program provides you with personalized help from someone that knows what you're going through. Learn more about what our program is, and how to become a part of it.</p>
+          <p><a class="btn btn-secondary" href="#Mentorships">View details »</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <center><img class='circle'width="140" height="140" src="{% static 'img/community-512.png' %}"alt="A circle">
+  
+          <h2>Community Events</h2></center>
+          <p>There are countless events happening in your community. Discover what activities are happening where you live.</p>
+          <p><a class="btn btn-secondary" href="#CommunityEvents">View details »</a></p>
+        </div><!-- /.col-lg-4 -->
+      </div>
+    </div>
+    <!--END CARDS-->
+    <!--TESTIMONIALS-->
+    <h3 class="mt-4" id="Testimonials">Testimonials</h3>
+    <p class="py-2">Every month we feature the stories of three individuals recovering from substance use disorder. <br>Read their full experience by clicking the link in the story's description.</p>
+
+    <hr class="featurette-divider mb-4">
+    <div class="row featurette py-4">
+        <div class="col-md-7">
+          <h4 class="featurette-heading"><b><i>"It felt like I could never face myself or my family again."</i></b></h4>
+          <br><p class="lead">Alexandra's knee surgery was supposed to give her the chance to live a life without as much pain. However, accidental mistakes when taking her medication and the pain of her parent's divorce
+            led to the previous physical pain she was in being replaced with the enormous guilt of a substance use disorder.
+          </p>
+          <p><a class="btn btn-secondary" href="#">Read Alexandra's story »</a></p>
+        </div>
+        <div class="col-md-5">
+          <img class='img-fluid' src="{% static 'img/smiling-woman-640.jpeg' %} "alt="A woman">
+        </div>
+      </div>
+      <hr class="featurette-divider my-4">
+
+      <div class="row featurette py-4">
+        <div class="col-md-7 order-md-2">
+          <h4 class="featurette-heading"><b><i>"It all clicked when I realized: You deserve to be happy again, regardless of mistakes made in the past."</i></b></h4>
+          <br><p class="lead">It was always easy for Joseph to feel compassion and understanding for others struggling with a substance use disorder. That same
+            compassion seemed to be impossible to find among his family, or himself when Joseph found himself facing that same challenge. 
+          </p>
+          <p><a class="btn btn-secondary" href="#">Read Joseph's story »</a></p>
+        </div>
+        <div class="col-md-5 order-md-1">
+          <img class='img-fluid' src="{% static 'img/manbun-640.jpeg' %}"alt="A man" height='500'>
+        </div>
+      </div>
+
+        <hr class="featurette-divider my-4">
+
+      <div class="row featurette py-4">
+        <div class="col-md-7">
+          <h4 class="featurette-heading"><b><i>"The challenge is remembering the highs when feeling the lowest you've ever been."</i></b></h4>
+          <br><p class="lead">Is there really hope that things will improve in the future? Colin knew of the dangers of an untreated substance use
+            disorder, but struggled to believe that he had the strength to fight back and recover. It took a leap of faith, and the courage to ask
+            for help from someone he didn't even know to overcome his challenges.
+          </p>
+          <p><a class="btn btn-secondary" href="#">Read Colin's story »</a></p>
+        </div>
+        <div class="col-md-5">
+          <img class='img-fluid' src="{% static 'img/glasses-man-640.jpeg' %}"alt="A man">
+  
+        </div>
+      </div>
+
+        <hr class="featurette-divider my-4">
+    <!--END TESTIMONIALS-->
+    <!--Mentorships-->
+    <h3 class="mt-4" id="Mentorships">Virtual Mentorships</h3>
+    <p><b>Our Program:</b><br> 
+      Confronting difficult situations should never be an individual battle. That's why we created the virtual mentorship program, so
+      individuals fighting challenges can find support from someone else that's been in the same situation. The flexibility of online
+      meetings means that you can determine the time and place that fits your individual schedule. Once you sign up for the program, 
+      our team works to find a mentor that will help you face your challenges head on, and become a trusted friend. There are options
+      for larger group interactions as well, depending on your comfort level. Every individual that signs up will have access to countless
+      online resources that can help you fight your battle through discovering new interests and gaining skills that will help you during
+      difficult times. There's no better time to reach out and find a mentor than now! <br><br>
+      <b>Our Mentors:</b><br>
+      All mentors in the program are individuals that have struggled with similar challenges in the past, and are still fighting today. 
+      Mentor applicants are interviewed before becoming a mentor, and our team ensures that each mentor is equipped with mentorship training and resources to assist you in your journey. Each mentor is assigned
+      to an individual based on personality, experience, and availabilty in order to ensure that you are matched with someone that can help you 
+      to feel empowered to continue fighting your battles.
+    </p>
+    <h4>Q&A</h4>
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              Who is eligible for the mentorship program?
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <strong>Anyone struggling with a substance use disorder.</strong><br>
+              Everyone deserves someone willing to fight in their corner, and one of the best ways to do so is by using our mentorship program. There is no shame in
+              the struggles that you may be facing, and we want to provide the support you deserve, regardless of your race, religious beliefs, or sexual orientation.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              How can I sign up for the mentorship program?
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <strong>Fill out our mentorship request form</strong><br>Our form is easy to understand and simple to fill out.
+              All you need to do is provide us with basic background information,
+              contact preferences, your schedule availability, and mentor preferences so that our mentorship team 
+              can select the best mentor to suit your unique needs. 
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              Do I need to pay for the program?
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <strong>Nope!</strong><br>It shouldn't cost money to ask for the help that you deserve. This is why our mentorship program is completely free for program members.
+            </div>
+          </div>
+        </div>
+      </div>
+    <!--END Mentorships-->
+    <!--COMMUNITY EVENTS-->
+    <h3 class="mt-4" id="CommunityEvents">Community Events</h3>
+    <p>Are you looking for an easy way to further you knowlege about a certain topic, experience nature, or celebrate special events? <br><br>Another way to gain a greater support circle is through getting to know members of your community. Below is a calendar that contains information about many of the community events that are happening
+      near you. Just select your current location, and discover what events are happening close to where you live. To learn more about a specific event, select it on the calendar. <br><br>
+    <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23039BE5&ctz=America%2FDenver&src=c2hhZHdyaXRlc2NvZGVAZ21haWwuY29t&src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%23039BE5&color=%2333B679&color=%230B8043" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+    <!--END COMMUNITY EVENTS-->
+
+</div>
+{% endblock %}

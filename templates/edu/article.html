@@ -1,0 +1,6 @@
+{% extends '../shared/base.html' %}
+{% block content %}
+    <h1>{{article.title}}</h1>
+    <h5>{{article.pub_date|date}} by {{article.author}}</h5>
+    {{article.body.quill.html | safe}}
+{% endblock content %}

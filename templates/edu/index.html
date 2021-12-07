@@ -1,0 +1,14 @@
+{% extends '../shared/base.html' %}
+{% load static %}
+{% block content %}
+<div class="hero">
+    <img class="hero-img" src="{% static 'img/hero-1920.jpeg' %}" alt="">
+    <div class="hero-caption">
+        <h1>Mental Health Matters.</h1> <!--todo: consider making this db updatable.-->
+        <button class="btn-primary btn mt-3"><a class="text-white nav-link py-0 px-3" href="{% url 'facts' %}">Learn More</a></button>
+    </div>
+</div>
+<div class="container">
+    
+</div>
+{% endblock %}

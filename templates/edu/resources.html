@@ -1,0 +1,33 @@
+{% extends '../shared/base.html' %}
+{% load tz %}
+{% load static %}
+{% block content %}
+<div class="container">
+  <h1 class="my-4">Resources</h1>
+  <!--Card previews of all resources-->
+  <div class="row mb-2">
+  {% for article in articles %}
+      <div class="col-md-6">
+        <div class="card row g-0 border rounded overflow-hidden flex-md-row mb-4 h-md-250 position-relative">
+          <div class="col p-4 d-flex flex-column position-static">
+            <strong class="label d-inline-block mb-2 text-primary">{{article.publication_type}}</strong>
+            <h3 class="mb-0 publication">{{article.title}}</h3>
+            {% localtime on %}
+            <div class="mb-1 text-muted">{{article.pub_date}}</div>
+            {% endlocaltime %}
+            {% if article.preview_text is not None %}
+              <p class="card-text mb-auto ">{{article.preview_text}}</p>
+            {% else %} <!--Failsafe author description generator for when an article doesn't have preview text-->
+              <p class="card-text mb-auto ">Get the latest on mental health trends and tips from {% cycle 'syndicated columnist' 'trusted author' 'vernable reporter' %}: {{article.author}}</p>
+          {% endif %}
+            <a href="{% url 'specific_resource' id=article.id %}" class="stretched-link">Continue reading</a>
+          </div>
+          <div class="col-auto d-lg-block">
+            <img class="preview-img" focusable="false" src="{% get_static_prefix %}img/preview_img/{{article.id}}.jpeg"/>
+          </div>
+        </div>
+      </div>
+  {% endfor %} 
+  </div>
+</div>
+{% endblock content %}
